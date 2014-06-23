@@ -15,9 +15,10 @@ then
     cd $CURDIR
     if [[ `uname -a` == *Ubuntu* ]]
     then
-       sudo sh -c 'echo "extension=phalcon.so" > /etc/php.d/30-phalcon.ini'
+        sudo sh -c 'echo "extension=phalcon.so" > /etc/php5/mods-available/30-phalcon.ini'
+        sudo ln -s /etc/php5/mods-available/30-phalcon.ini /etc/php5/cli/conf.d/30-phalcon.ini
     else
-       sudo sh -c 'echo "extension=phalcon.so" >> /etc/php/php.ini'
+        sudo sh -c 'echo "extension=phalcon.so" >> /etc/php/php.ini'
     fi
 fi
 
