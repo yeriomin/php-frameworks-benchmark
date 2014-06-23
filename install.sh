@@ -13,6 +13,12 @@ then
     cd cphalcon/build
     sudo ./install
     cd $CURDIR
+    if [[ `uname -a` == *Ubuntu* ]]
+    then
+       sudo sh -c 'echo "extension=phalcon.so" > /etc/php.d/30-phalcon.ini'
+    else
+       sudo sh -c 'echo "extension=phalcon.so" >> /etc/php/php.ini'
+    fi
 fi
 
 # Now installing composer and using it to install all other frameworks
